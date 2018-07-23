@@ -1,4 +1,4 @@
-package com.kiranreddy.budgettrackerreactive.domain;
+package com.kiranreddy.budgettrackerreactive.category;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
@@ -9,7 +9,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class TransactionCategory {
 
 	@Id
-	private Long id;
+	private String id;
 	private String category;
-	private Long userId;
 }
