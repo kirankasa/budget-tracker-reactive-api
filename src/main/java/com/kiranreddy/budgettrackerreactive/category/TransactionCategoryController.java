@@ -6,6 +6,7 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping(value = "/transactions/categories")
+@CrossOrigin
 public class TransactionCategoryController {
 
     private TransactionCategoryService transactionCategoryService;
