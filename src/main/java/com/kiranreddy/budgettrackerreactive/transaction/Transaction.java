@@ -19,22 +19,10 @@ public class Transaction {
 
     @Id
     private String id;
-    @JsonSerialize(using = TransactionTypeSerializer.class)
     private String type;
     private Double amount;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
     private String note;
     private String category;
-}
-
-class TransactionTypeSerializer extends JsonSerializer<String> {
-
-    @Override
-    public void serialize(String type,
-                          JsonGenerator jsonGenerator,
-                          SerializerProvider serializerProvider)
-            throws IOException, JsonProcessingException {
-        jsonGenerator.writeObject("D".equals(type)? "Debit" : "Credit");
-    }
 }

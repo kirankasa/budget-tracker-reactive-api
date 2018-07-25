@@ -22,8 +22,19 @@ public class TransactionController {
         return transactionService.retrieveTransactions();
     }
 
+    @GetMapping("/{id}")
+    public Mono<Transaction> findTransactionById(@PathVariable("id") String id) {
+        return transactionService.findTransactionById(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public Mono<Void> deleteTransactionById(@PathVariable("id") String id) {
+        return transactionService.deleteTransaction(id);
+    }
+
     @PostMapping
     public Mono<Transaction> saveTransaction(@RequestBody Transaction transaction) {
         return transactionService.saveTransaction(transaction);
     }
+
 }

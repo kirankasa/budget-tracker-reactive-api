@@ -21,4 +21,11 @@ public class TransactionService {
 		return transactionRepository.save(transaction);
 	}
 
+	public Mono<Void> deleteTransaction(String id) {
+		return transactionRepository.deleteById(id);
+	}
+
+	public Mono<Transaction> findTransactionById(String id) {
+		return transactionRepository.findById(id).switchIfEmpty(Mono.error(new RuntimeException("No transaction found")));
+	}
 }
