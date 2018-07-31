@@ -20,6 +20,16 @@ public class TransactionCategoryController {
         return transactionCategoryService.retrieveTransactionCategories();
     }
 
+    @GetMapping("/{id}")
+    public Mono<TransactionCategory> findCategoryById(@PathVariable("id") String id) {
+        return transactionCategoryService.findCategoryById(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public Mono<Void> deleteCategory(@PathVariable("id") String id) {
+        return transactionCategoryService.deleteCategory(id);
+    }
+
     @PostMapping
     public Mono<TransactionCategory> saveTransactionCategory(@RequestBody TransactionCategory transactionCategory) {
         return transactionCategoryService.saveTransactionCategory(transactionCategory);
